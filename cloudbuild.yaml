@@ -26,17 +26,3 @@ steps:
       ]
 images:
   - gcr.io/$PROJECT_ID/nextjs
-
-class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        allNums = nums1 + nums2
-        allSortedNums = sorted(allNums)
-        numsLen = len(allSortedNums)
-        val = None
-        if numsLen % 2 == 0:
-            highNum = allSortedNums[numsLen/2]
-            lowNum = allSortedNums[()numsLen/2)-1]
-            val = (highNum+lowNum)/2
-        else:
-            val = allSortedNums[numsLen/2]
-        return val
