@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 import localFont from 'next/font/local'
 
-const myFont = localFont({
+const robotoRegular = localFont({
   src: '../../public/Roboto-Regular.ttf',
   display: 'swap',
 })
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={myFont.className}>
+      <body className={robotoRegular.className}>
         <div className=" bg-gradient-to-t from-red-400 to-orange-300 ">
           <Header />
           <div className="grid grid-cols-12">
