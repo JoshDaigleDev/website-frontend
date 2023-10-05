@@ -22,16 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={robotoRegular.className}>
-        <div className=" bg-gradient-to-t from-red-400 to-orange-300 ">
-          <Header />
-          <div className="grid grid-cols-12">
-            <div className="col-span-6 col-start-4 ">
-              {children}
-            </div>
-          </div>
-          <Footer />
-        </div>
+      <body className={`${robotoRegular.className} bg-emerald-950`}>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   )

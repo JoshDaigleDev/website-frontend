@@ -1,10 +1,10 @@
 export default function Footer() {
     return (
-        <div className="grid grid-cols-8 bg-opacity-60 bg-indigo-950 border-t px-32 py-6">
-            <div className="flex items-center justify-center opacity-100">
-                © Josh Daigle 2023
+        <div className="grid grid-cols-8 border-t md:px-32 md:py-6 text-xs p-3">
+            <div className=" col-span-2 flex items-center justify-center">
+                ©Josh Daigle 2023
             </div>
-            <div className="flex items-center justify-center col-span-3">
+            <div className=" col-span-6 flex items-center justify-center">
                 Built With 🗲 ReactJS ● NextJS ● Typescript ● TailwindCSS ● Google Cloud Platform
             </div>
         </div>

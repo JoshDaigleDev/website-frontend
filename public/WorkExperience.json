@@ -1,0 +1,34 @@
+[
+    {
+        "company": "Payworks",
+        "title": "Software Developer",
+        "dateFrom": "May 2022",
+        "dateTo": "August 2022",
+        "jobDescription":"Used VueJS, C#, and the .NET Framework to develope several pages and API routes to expand the features of the Payworks Software Suite.",
+        "imagePath": "/PayworksLogo.png",
+        "imageAlt": "Payworks Logo",
+        "skills": ["VueJS", "SQL", "C#", ".NET"]
+    },
+
+    {
+        "company": "Agriculture and Agri-Food Canada",
+        "title": "Programmer/Analyst",
+        "dateFrom": "September 2021",
+        "dateTo": "December 2021",
+        "jobDescription":"Used VueJS, SQL, and the Groovy on Grails Framwork to build intuitive user interfaces and enable comprehensive activity cost sharing, financial planning, and resource allocation",
+        "imagePath": "/AgricultureAndAgriFoodCanadaLogo.png",
+        "imageAlt": "Agriculture and Agri-Food Canada Logo",
+        "skills": ["VueJS", "SQL", "Groovy on Grails"]
+    },
+
+    {
+        "company": "Upfeat Media",
+        "title": "Software Developer",
+        "dateFrom": "January 2021",
+        "dateTo": "April 2021",
+        "jobDescription":"Used VueJS, NuxtJS, and the Google Cloud Platform to build a web-based Covid-19 contact tracing application.",
+        "imagePath": "/UpfeatLogo.png",
+        "imageAlt": "Upfeat Media Logo Logo",
+        "skills": ["VueJS", "NuxtJS", "FireBase", "Google Cloud Platform"]
+    }
+]
