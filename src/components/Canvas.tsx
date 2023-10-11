@@ -187,7 +187,6 @@ const Canvas: React.FC<CanvasProps> = () => {
         dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
         canvas.width = window.innerWidth;
         draw();
-        console.log(scaledPosition, ang)
       }
 
       window.addEventListener('scroll',  handleScroll)
