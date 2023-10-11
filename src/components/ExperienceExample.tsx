@@ -28,13 +28,13 @@ interface ExperienceExampleProps {
 
 export default function ExperienceExample(props: ExperienceExampleProps) {
   return (
-    <div className="grid bg-neutral-900 ">
-      <div className={`${boldFont.className} flex justify-between space-x-5 border-b border-neutral-200 p-5 text-lg`}>
+    <div className="grid bg-neutral-900 min-w-full">
+      <div className={`${boldFont.className} flex justify-between space-x-5  bg-neutral-800  p-2 text-lg`}>
         <span>{props.title} @ {props.company}</span>
         <span className={`${italFont.className} text-sm`}>{props.dateFrom} - {props.dateTo}</span>
       </div>
-      <div className="grid grid-cols-4">
-        <div className="border-r flex items-center  p-2 justify-center border-neutral-200">
+      <div className="grid grid-cols-5">
+        <div className="flex items-center  p-2 justify-center ">
           <Image
             width={100}
             height={100}
@@ -42,8 +42,8 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
             alt={props.imageAlt}
           />
         </div>
-        <div className="col-span-3 grid">
-          <div className="flex border-b p-1 align-center items-center border-neutral-200">
+        <div className="col-span-4 grid">
+          <div className="flex p-1 align-center items-center">
             <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <span className="text-xs pr-2">Winnipeg, MB (Remote)</span>
             <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
@@ -55,16 +55,17 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
             </p>
 
           </div>
-          <div className="inline-block p-2">
+
+        </div>
+
+      </div>
+      <div className="inline-block p-2">
             {props.skills.map((skill, index) => (
-              <span key={index} className="p-1 m-1 text-xs whitespace-nowrap bg-yellow-600">
+              <span key={index} className="p-1 m-1 text-xs whitespace-pre-wrap bg-yellow-600">
                 {skill}
               </span>
             ))}
           </div>
-
-        </div>
-      </div>
     </div>
   );
 }

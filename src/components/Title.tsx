@@ -15,7 +15,7 @@ export default function Title() {
     return (
         <>
         <Canvas />
-        <section className="grid gap-3 md:gap-8 py-5 min-h-screen  -z-20">
+        <section className="grid gap-3 md:gap-8 pt-9 -z-20">
             
             <div className="flex justify-center items-end  drop-shadow-lg z-10">
                 <h1 className={`${boldFont.className} lg:text-[180px] md:text-[140px] sm:text-8xl text-6xl`}>

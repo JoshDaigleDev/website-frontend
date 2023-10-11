@@ -13,6 +13,7 @@ const Canvas: React.FC<CanvasProps> = () => {
 
       var scaleVal = window.innerWidth > window.innerHeight ? window.innerWidth/4: window.innerHeight/4;
       var ang = Math.PI/6;
+      var soloAng = 0;
       var dotOpacity = 0;
 
       function calculateScale(): number {
@@ -73,6 +74,49 @@ const Canvas: React.FC<CanvasProps> = () => {
         }
   
       }
+
+
+
+      function soloRecTree(canvas: HTMLCanvasElement, num: number, len: number): void {
+        
+        const context = canvas?.getContext('2d');
+        if (!canvas || !context) return;
+  
+        
+        context.strokeStyle = `#ca8a04`;
+        context.beginPath();
+        context.moveTo(0,0);
+        context.lineTo(0, -len);
+        if (ang > Math.PI/1024) {
+          context.lineWidth = num/1.2;
+          context.stroke();  
+        }
+
+        if (num > 1){
+          context.translate(0, -len);
+          context.rotate(ang)
+          soloRecTree(canvas, num-1, len*0.6);
+          context.rotate(-ang);
+          context.rotate(-ang/2)
+          soloRecTree(canvas, num-1, len*0.7);
+          context.rotate(ang/2);
+          context.translate(0, len);
+        } else if (ang > Math.PI/3.5) {
+          var randomColour = getRandomFillStyle();
+          context.fillStyle = randomColour;
+          context.translate(0, -len);
+          context.rotate(ang)
+          context.beginPath();
+          context.arc(0, 0, 2, 0, 2 * Math.PI);
+          context.fill();
+          context.rotate(-ang);
+          context.rotate(-ang/2)
+          context.beginPath();
+          context.arc(0, 0, 1, 0, 2 * Math.PI);
+          context.rotate(ang/2);
+          context.translate(0, len);
+        }
+      }
   
 
       function getRandomFillStyle() {
@@ -87,10 +131,10 @@ const Canvas: React.FC<CanvasProps> = () => {
       
       function drawFloor(canvas: HTMLCanvasElement): void {
         const context = canvas?.getContext('2d');
-        if (!canvas || !context) return;
+        if (!canvas || !context || ang < Math.PI/1024) return;
         context.fillStyle = "#ca8a04";
-        context.fillRect(0, 0, 100, 100);
-        context.fillRect(-canvas.width/3, -canvas.height/80, 2*canvas.width/3, canvas.height/80);
+        var width = mapRange(ang, Math.PI/1024, Math.PI/6, 0, 2*canvas.width/3)
+        context.fillRect(-canvas.width/3, -canvas.height/80, width, canvas.height/80);
 
       }
 
@@ -99,10 +143,18 @@ const Canvas: React.FC<CanvasProps> = () => {
         const context = canvas?.getContext('2d');
         if (!canvas || !context) return;
         context.translate(canvas.width/2, canvas.height)
-        drawFloor(canvas);
 
-        drawTree(canvas, canvas.width/4);
-        drawTree(canvas, -canvas.width/4, true);
+        if (canvas.width >= 1000) {
+          drawFloor(canvas);
+          drawTree(canvas, canvas.width/4);
+          drawTree(canvas, -canvas.width/4, true);
+        } else {
+          context.translate(0, -canvas.height/2.2);
+          drawFloor(canvas);
+          soloRecTree(canvas, 11, scaleVal/2)
+          context.translate(0, canvas.height/2.2);
+        }
+
 
         //drawFloor(canvas);
 
@@ -121,17 +173,32 @@ const Canvas: React.FC<CanvasProps> = () => {
       const handleMouseMove = (e: MouseEvent) => {
         canvas.width = window.innerWidth;
         ang = mapRange(e.clientX, 10, window.innerWidth-20, 0, Math.PI/3);
+        soloAng = mapRange(e.clientX, 10, window.innerWidth-20, 0, Math.PI/2);
         dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
         draw();
       }
 
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const scaledPosition = (scrollPosition / viewportHeight) * 100;
 
+        ang = mapRange(scaledPosition, 35, 10, 0, Math.PI/3);
+        dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
+        canvas.width = window.innerWidth;
+        draw();
+        console.log(scaledPosition, ang)
+      }
+
+      window.addEventListener('scroll',  handleScroll)
       window.addEventListener('resize', handleResize);
-      window.addEventListener('mousemove', handleMouseMove);
+      //window.addEventListener('mousemove', handleMouseMove);
+
+
       draw();
       return () => {
         window.removeEventListener('resize', handleResize);
-        window.removeEventListener('mousemove', handleMouseMove);
+        //window.removeEventListener('mousemove', handleMouseMove);
       };
     
     }, []);
