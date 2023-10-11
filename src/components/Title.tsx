@@ -6,6 +6,10 @@ const boldFont = localFont({
   display: 'swap',
 })
 
+const italFont = localFont({
+    src: '../../public/Roboto-LightItalic.ttf',
+    display: 'swap'
+})
 
 export default function Title() {
     return (
@@ -19,7 +23,7 @@ export default function Title() {
                 </h1>
             </div>
             <div className="flex justify-center drop-shadow-lg">
-                <h1 className="lg:text-[66px] md:text-[54px] sm:text-4xl text-2xl z-10">
+                <h1 className={`${italFont.className} lg:text-[66px] md:text-[54px] sm:text-4xl text-2xl z-10`}>
                     Software Developer
                 </h1>
             </div>

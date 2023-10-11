@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="grid grid-cols-8 border-t md:px-32 md:py-6 text-xs p-3">
+        <div className="grid grid-cols-8 border-t md:px-32 md:py-6 text-xs p-3 bg-neutral-900">
             <div className=" col-span-2 flex items-center justify-center">
                 ©Josh Daigle 2023
             </div>

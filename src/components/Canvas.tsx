@@ -42,10 +42,11 @@ const Canvas: React.FC<CanvasProps> = () => {
         context.beginPath();
         context.moveTo(0,0);
         context.lineTo(0, -len);
-        if (ang > Math.PI/1024) context.lineWidth = num/1.2;
-        
-        context.stroke();
-  
+        if (ang > Math.PI/1024) {
+          context.lineWidth = num/1.2;
+          context.stroke();  
+        }
+
         if (num > 1){
           context.translate(0, -len);
           context.rotate(ang)
@@ -56,10 +57,8 @@ const Canvas: React.FC<CanvasProps> = () => {
           context.rotate(ang/2);
           context.translate(0, len);
         } else if (ang > Math.PI/3.5) {
-
           var randomColour = getRandomFillStyle();
           context.fillStyle = randomColour;
-          
           context.translate(0, -len);
           context.rotate(ang)
           context.beginPath();
@@ -75,15 +74,6 @@ const Canvas: React.FC<CanvasProps> = () => {
   
       }
   
-      function clearBG(canvas: HTMLCanvasElement): void {
-        const context = canvas?.getContext('2d');
-        if (!canvas || !context) return;
-
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "black"//'#022c22';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.translate(canvas.width/2, canvas.height)
-      }
 
       function getRandomFillStyle() {
         const red = Math.floor(Math.random() * 256);
@@ -94,13 +84,28 @@ const Canvas: React.FC<CanvasProps> = () => {
     
         return fillStyle;
       }
+      
+      function drawFloor(canvas: HTMLCanvasElement): void {
+        const context = canvas?.getContext('2d');
+        if (!canvas || !context) return;
+        context.fillStyle = "#ca8a04";
+        context.fillRect(0, 0, 100, 100);
+        context.fillRect(-canvas.width/3, -canvas.height/80, 2*canvas.width/3, canvas.height/80);
+
+      }
 
     
       function draw() {
-        if (!canvas) return;
-        clearBG(canvas)
+        const context = canvas?.getContext('2d');
+        if (!canvas || !context) return;
+        context.translate(canvas.width/2, canvas.height)
+        drawFloor(canvas);
+
         drawTree(canvas, canvas.width/4);
-        drawTree(canvas, -canvas.width/4, true)
+        drawTree(canvas, -canvas.width/4, true);
+
+        //drawFloor(canvas);
+
       }
 
 

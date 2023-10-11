@@ -4,9 +4,11 @@
         "title": "Software Developer",
         "dateFrom": "May 2022",
         "dateTo": "August 2022",
-        "jobDescription":"Used VueJS, C#, and the .NET Framework to develope several pages and API routes to expand the features of the Payworks Software Suite.",
+        "jobDescription":"Developed several pages and API routes to expand the features of the Payworks Software Suite.",
         "imagePath": "/PayworksLogo.png",
         "imageAlt": "Payworks Logo",
+        "websiteLink": "https://www.payworks.ca",
+        "websiteName": "payworks.ca",
         "skills": ["VueJS", "SQL", "C#", ".NET"]
     },
 
@@ -15,9 +17,11 @@
         "title": "Programmer/Analyst",
         "dateFrom": "September 2021",
         "dateTo": "December 2021",
-        "jobDescription":"Used VueJS, SQL, and the Groovy on Grails Framwork to build intuitive user interfaces and enable comprehensive activity cost sharing, financial planning, and resource allocation",
+        "jobDescription":"Created intuitive user interfaces and enable comprehensive activity cost sharing, financial planning, and resource allocation.",
         "imagePath": "/AgricultureAndAgriFoodCanadaLogo.png",
         "imageAlt": "Agriculture and Agri-Food Canada Logo",
+        "websiteLink": "https://agriculture.canada.ca/en",
+        "websiteName": "agriculture.canada.ca",
         "skills": ["VueJS", "SQL", "Groovy on Grails"]
     },
 
@@ -26,9 +30,11 @@
         "title": "Software Developer",
         "dateFrom": "January 2021",
         "dateTo": "April 2021",
-        "jobDescription":"Used VueJS, NuxtJS, and the Google Cloud Platform to build a web-based Covid-19 contact tracing application.",
+        "jobDescription":"Build a web-based Covid-19 contact tracing application.",
         "imagePath": "/UpfeatLogo.png",
         "imageAlt": "Upfeat Media Logo Logo",
+        "websiteLink": "https://www.upfeat.com",
+        "websiteName": "upfeat.com",
         "skills": ["VueJS", "NuxtJS", "FireBase", "Google Cloud Platform"]
     }
 ]

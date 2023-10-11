@@ -2,11 +2,9 @@ import Link from 'next/link'
 
 export default function Header() {
     return (
-        <div className="flex items-center justify-center border-b space-x-5 py-3">
+        <div className="flex items-center justify-center border-b bg-neutral-900 space-x-5 py-3">
             <div className="flex items-center justify-center">
-                <Link href="/" className="transition ease-in-out delay-50 hover:text-red-500 duration 200">
-                    Home
-                </Link>
+                <p> Home </p>
             </div>
             <div className="flex items-center justify-center">
                 <p> Experience </p>       
