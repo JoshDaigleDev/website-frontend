@@ -136,8 +136,7 @@ const Canvas: React.FC<CanvasProps> = () => {
     
     }, []);
 
-    return <canvas ref={canvasRef} width={window.innerWidth}
-    height={window.innerHeight} className="absolute top-0 left-0 w-full h-full -z-10"/>
+    return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full -z-10"/>
 }
 
 export default Canvas
