@@ -24,7 +24,7 @@ RUN npm run build
 FROM base AS runner
 WORKDIR /app
 
-COPY --from=builder /public ./public
+COPY --from=builder app/public ./public
 
 EXPOSE 3000
 
