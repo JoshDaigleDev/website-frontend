@@ -12,8 +12,8 @@ const Canvas: React.FC<CanvasProps> = () => {
       if (!canvas) return;
 
       var scaleVal = calculateScale();
-      var ang = Math.PI/6;
-      var dotOpacity = 0;
+      var ang = Math.PI/3;
+      var dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
 
       function calculateScale(): number {
         return Math.max(window.innerWidth/8, 200);
@@ -102,12 +102,12 @@ const Canvas: React.FC<CanvasProps> = () => {
           context.translate(0, -len);
           context.rotate(ang)
           context.beginPath();
-          context.arc(0, 0, 2, 0, 2 * Math.PI);
+          context.arc(0, 0, 1.5, 0, 2 * Math.PI);
           context.fill();
           context.rotate(-ang);
           context.rotate(-ang/2)
           context.beginPath();
-          context.arc(0, 0, 1, 0, 2 * Math.PI);
+          context.arc(0, 0, 1.5, 0, 2 * Math.PI);
           context.rotate(ang/2);
           context.translate(0, len);
         }
@@ -163,8 +163,9 @@ const Canvas: React.FC<CanvasProps> = () => {
         const scrollPosition = window.scrollY;
         const viewportHeight = window.innerHeight;
         const scaledPosition = (scrollPosition / viewportHeight) * 100;
-
-        ang = mapRange(scaledPosition, 35, 10, 0, Math.PI/3);
+        var max = window.innerHeight > window.innerWidth ? 50 : 75;
+        ang = mapRange(scaledPosition, max, 10, 0, Math.PI/3);
+        console.log(window.innerHeight)
         dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
         canvas.width = window.innerWidth;
         draw();

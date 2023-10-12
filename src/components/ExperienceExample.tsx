@@ -53,11 +53,8 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
             <p className="text-sm lg:text-base">
               {props.jobDescription}
             </p>
-
           </div>
-
         </div>
-
       </div>
       <div className="inline-block p-2">
             {props.skills.map((skill, index) => (
