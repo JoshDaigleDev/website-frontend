@@ -1,3 +1,4 @@
+
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
@@ -25,6 +26,8 @@ FROM base AS runner
 WORKDIR /app
 
 COPY --from=builder app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 EXPOSE 3000
 
