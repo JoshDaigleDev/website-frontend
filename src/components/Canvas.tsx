@@ -11,13 +11,12 @@ const Canvas: React.FC<CanvasProps> = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      var scaleVal = window.innerWidth > window.innerHeight ? window.innerWidth/4: window.innerHeight/4;
+      var scaleVal = calculateScale();
       var ang = Math.PI/6;
-      var soloAng = 0;
       var dotOpacity = 0;
 
       function calculateScale(): number {
-        return window.innerWidth < window.innerHeight ? window.innerHeight/4: Math.max(window.innerWidth/8, 200);
+        return Math.max(window.innerWidth/8, 200);
       }
 
       function mapRange(target: number, inMin: number, inMax: number, outMin: number, outMax: number): number {
@@ -75,20 +74,16 @@ const Canvas: React.FC<CanvasProps> = () => {
   
       }
 
-
-
       function soloRecTree(canvas: HTMLCanvasElement, num: number, len: number): void {
-        
         const context = canvas?.getContext('2d');
         if (!canvas || !context) return;
-  
-        
+
         context.strokeStyle = `#ca8a04`;
         context.beginPath();
         context.moveTo(0,0);
         context.lineTo(0, -len);
         if (ang > Math.PI/1024) {
-          context.lineWidth = num/1.2;
+          context.lineWidth = num/1.5;
           context.stroke();  
         }
 
@@ -117,7 +112,6 @@ const Canvas: React.FC<CanvasProps> = () => {
           context.translate(0, len);
         }
       }
-  
 
       function getRandomFillStyle() {
         const red = Math.floor(Math.random() * 256);
@@ -137,7 +131,6 @@ const Canvas: React.FC<CanvasProps> = () => {
         context.fillRect(-canvas.width/3, -canvas.height/80, width, canvas.height/80);
 
       }
-
     
       function draw() {
         const context = canvas?.getContext('2d');
@@ -154,10 +147,6 @@ const Canvas: React.FC<CanvasProps> = () => {
           soloRecTree(canvas, 11, scaleVal/2)
           context.translate(0, canvas.height/2.2);
         }
-
-
-        //drawFloor(canvas);
-
       }
 
 
@@ -169,14 +158,6 @@ const Canvas: React.FC<CanvasProps> = () => {
       };
 
       handleResize();
-
-      const handleMouseMove = (e: MouseEvent) => {
-        canvas.width = window.innerWidth;
-        ang = mapRange(e.clientX, 10, window.innerWidth-20, 0, Math.PI/3);
-        soloAng = mapRange(e.clientX, 10, window.innerWidth-20, 0, Math.PI/2);
-        dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
-        draw();
-      }
 
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
@@ -191,13 +172,11 @@ const Canvas: React.FC<CanvasProps> = () => {
 
       window.addEventListener('scroll',  handleScroll)
       window.addEventListener('resize', handleResize);
-      //window.addEventListener('mousemove', handleMouseMove);
 
 
       draw();
       return () => {
         window.removeEventListener('resize', handleResize);
-        //window.removeEventListener('mousemove', handleMouseMove);
       };
     
     }, []);

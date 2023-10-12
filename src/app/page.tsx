@@ -1,5 +1,6 @@
 import Title from '@/components/Title'
 import Experience from '@/components/Experience'
+import Education from '@/components/Education'
 
 
 export default function Page() {
@@ -10,6 +11,9 @@ export default function Page() {
       </div>
       <div className="flex justify-center py-4">
         <Experience />
+      </div>
+      <div className="flex justify-center py-4">
+        <Education />
       </div>
     </main>
   )

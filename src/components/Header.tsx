@@ -1,8 +1,6 @@
-import Link from 'next/link'
-
 export default function Header() {
     return (
-        <div className="flex items-center justify-center border-b bg-neutral-900 space-x-5 py-3">
+        <div className="flex items-center justify-center border-b bg-neutral-900 space-x-5 py-3 lg:text-xl">
             <div className="flex items-center justify-center">
                 <p> Home </p>
             </div>
