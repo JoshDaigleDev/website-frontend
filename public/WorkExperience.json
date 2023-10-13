@@ -9,7 +9,7 @@
         "imageAlt": "Payworks Logo",
         "websiteLink": "https://www.payworks.ca",
         "websiteName": "payworks.ca",
-        "skills": ["VueJS", "SQL", "C#", ".NET"]
+        "skills": ["Full Stack", "VueJS", "Javascript","CSS", "HTML", "SQL", "C#", ".NET", "Agile"]
     },
 
     {
@@ -22,7 +22,7 @@
         "imageAlt": "Agriculture and Agri-Food Canada Logo",
         "websiteLink": "https://agriculture.canada.ca/en",
         "websiteName": "agriculture.canada.ca",
-        "skills": ["VueJS", "SQL", "Grails"]
+        "skills": ["Full Stack", "VueJS", "Javascript", "CSS", "HTML", "SQL", "Grails"]
     },
 
     {
@@ -35,6 +35,6 @@
         "imageAlt": "Upfeat Media Logo Logo",
         "websiteLink": "https://www.upfeat.com",
         "websiteName": "upfeat.com",
-        "skills": ["VueJS", "NuxtJS", "FireBase", "Google Cloud"]
+        "skills": ["Full Stack", "VueJS", "NuxtJS", "Javascript", "CSS", "HTML", "FireBase", "Google Cloud"]
     }
 ]
