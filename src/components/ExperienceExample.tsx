@@ -28,7 +28,7 @@ interface ExperienceExampleProps {
 
 export default function ExperienceExample(props: ExperienceExampleProps) {
   return (
-    <div className="grid bg-neutral-900 min-w-full">
+    <div className="grid bg-neutral-900 min-w-full mb-6">
       <div className={`${boldFont.className} flex justify-between space-x-5  bg-neutral-800  p-2 text-lg lg:text-xl`}>
         <span>{props.title} @ {props.company}</span>
         <span className={`${italFont.className} text-sm lg:text-base items-center`}>{props.dateFrom} - {props.dateTo}</span>
