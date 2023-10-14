@@ -10,7 +10,7 @@ export default function Page() {
       <div className="lg:min-h-screen min-h-[50vh]">
         <Title />
       </div>
-      <div className="flex justify-center py-4 mt-16">
+      <div className="flex justify-center py-4 lg:mt-16 mt-8">
         <Experience />
       </div>
       <div className="flex justify-center py-4">

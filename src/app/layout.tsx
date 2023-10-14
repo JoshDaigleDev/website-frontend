@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${robotoRegular.className}`}>
+      <body className={`${robotoRegular.className} dark`}>
         <div className="z-30">
           <Header />
         </div>

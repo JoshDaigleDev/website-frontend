@@ -82,7 +82,7 @@ const Canvas: React.FC<CanvasProps> = () => {
         context.moveTo(0,0);
         context.lineTo(0, -len);
         if (ang > Math.PI/1024) {
-          context.lineWidth = num/1.5;
+          context.lineWidth = num/2.2;
           context.stroke();  
         }
 
@@ -122,12 +122,13 @@ const Canvas: React.FC<CanvasProps> = () => {
         return fillStyle;
       }
       
-      function drawFloor(canvas: HTMLCanvasElement): void {
+      function drawFloor(canvas: HTMLCanvasElement, reduce: boolean = false): void {
         const context = canvas?.getContext('2d');
         if (!canvas || !context || ang < Math.PI/1024) return;
         context.fillStyle = "#ca8a04";
-        var width = mapRange(ang, Math.PI/1024, Math.PI/6, 0, 2*canvas.width/3)
-        context.fillRect(-canvas.width/3, -canvas.height/80, width, canvas.height/80);
+        var width: number = mapRange(ang, Math.PI/1024, Math.PI/6, 0, 2*canvas.width/3)
+        var height: number = reduce ? canvas.height/180 : canvas.height/80 //TODO-- WHY ISNT THIS WORKING?
+        context.fillRect(-canvas.width/3, -height+1, width, height);
 
       }
     
@@ -138,13 +139,13 @@ const Canvas: React.FC<CanvasProps> = () => {
 
         context.translate(canvas.width/2, canvas.height)
 
-        if (canvas.width >= 1000) {
+        if (canvas.width >= 1024) {
           drawFloor(canvas);
           drawTree(canvas, canvas.width/4);
           drawTree(canvas, -canvas.width/4, true);
         } else {
           context.translate(0, -canvas.height/2.2);
-          drawFloor(canvas);
+          drawFloor(canvas, true);
           soloRecTree(canvas, 11, scaleVal/2)
           context.translate(0, canvas.height/2.2);
         }
@@ -163,9 +164,8 @@ const Canvas: React.FC<CanvasProps> = () => {
         var scrollPosition: number = window.scrollY;
         var viewportHeight: number = window.innerHeight;
         var scaledPosition: number = (scrollPosition / viewportHeight) * 100;
-        var max: number = window.innerHeight > window.innerWidth ? 50 : 75;
+        var max: number = window.innerHeight > window.innerWidth ? 50 : 60;
         ang = mapRange(scaledPosition, max, 10, 0, Math.PI/3);
-        console.log(window.innerHeight)
         dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
         canvas.width = window.innerWidth;
         draw();

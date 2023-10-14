@@ -8,7 +8,7 @@ const boldFont = localFont({
 });
 
 const italFont = localFont({
-  src: '../../public/Roboto-LightItalic.ttf',
+  src: '../../public/Roboto-MediumItalic.ttf',
   display: 'swap'
 })
 
@@ -34,7 +34,7 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
         <span className={`${italFont.className} text-sm lg:text-base items-center`}>{props.dateFrom} - {props.dateTo}</span>
       </div>
       <div className="grid grid-cols-5">
-        <div className="flex items-center  p-2 justify-center ">
+        <div className="flex items-center p-2 justify-center ">
           <Image
             width={100}
             height={100}
@@ -56,9 +56,9 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
           </div>
         </div>
       </div>
-      <div className="inline-block p-2">
+      <div className="inline-block p-2 truncate overflow-hidden">
             {props.skills.map((skill, index) => (
-              <span key={index} className="p-1 m-1 text-xs lg:text-base whitespace-pre-wrap bg-yellow-600">
+              <span key={index} className="p-1 m-1 text-xs lg:text-base bg-yellow-600">
                 {skill}
               </span>
             ))}

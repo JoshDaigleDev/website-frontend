@@ -37,7 +37,7 @@ export default function ScrollChips() {
     return (
         <div>
             { 
-                isVisible && <button 
+                isVisible && !isMobile && <button 
                     onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
                     className="bg-neutral-800 border-yellow-600 text-yellow-600 fixed border-4 animate-bounce rounded-full bottom-0 right-0 p-3 hover:p-4 mr-7 mb-5">
                         <svg className="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
