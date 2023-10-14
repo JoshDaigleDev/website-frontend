@@ -11,9 +11,9 @@ const Canvas: React.FC<CanvasProps> = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
-      var scaleVal = calculateScale();
-      var ang = Math.PI/3;
-      var dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
+      var scaleVal: number = calculateScale();
+      var ang: number = Math.PI/3;
+      var dotOpacity: number = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
 
       function calculateScale(): number {
         return Math.max(window.innerWidth/8, 200);
@@ -23,7 +23,7 @@ const Canvas: React.FC<CanvasProps> = () => {
         return Math.min(Math.max((target - inMin) * (outMax - outMin) / (inMax - inMin) + outMin, outMin), outMax);
       }
 
-      function drawTree(canvas: HTMLCanvasElement, positionX: number, flip: boolean = false) {
+      function drawTree(canvas: HTMLCanvasElement, positionX: number, flip: boolean = false): void {
         const context = canvas?.getContext('2d');
         if (!canvas || !context) return;
         context.translate(positionX, 0);
@@ -34,7 +34,6 @@ const Canvas: React.FC<CanvasProps> = () => {
       }
 
       function recTree (canvas: HTMLCanvasElement, num: number, len: number): void {
-        
         const context = canvas?.getContext('2d');
         if (!canvas || !context) return;
   
@@ -113,12 +112,12 @@ const Canvas: React.FC<CanvasProps> = () => {
         }
       }
 
-      function getRandomFillStyle() {
-        const red = Math.floor(Math.random() * 256);
-        const green = Math.floor(Math.random() * 256);
-        const blue = Math.floor(Math.random() * 256);
-    
-        const fillStyle = `rgba(${red}, ${green}, ${blue}, ${dotOpacity})`;
+
+      function getRandomFillStyle(): string {
+        const red: number = Math.floor(Math.random() * 256);
+        const green: number = Math.floor(Math.random() * 256);
+        const blue: number = Math.floor(Math.random() * 256);
+        const fillStyle: string = `rgba(${red}, ${green}, ${blue}, ${dotOpacity})`;
     
         return fillStyle;
       }
@@ -132,9 +131,11 @@ const Canvas: React.FC<CanvasProps> = () => {
 
       }
     
-      function draw() {
+
+      function draw(): void {
         const context = canvas?.getContext('2d');
         if (!canvas || !context) return;
+
         context.translate(canvas.width/2, canvas.height)
 
         if (canvas.width >= 1000) {
@@ -150,20 +151,19 @@ const Canvas: React.FC<CanvasProps> = () => {
       }
 
 
-      const handleResize = () => {
+      const handleResize = (): void => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         scaleVal = calculateScale();
         draw();
       };
 
-      handleResize();
 
-      const handleScroll = () => {
-        const scrollPosition = window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const scaledPosition = (scrollPosition / viewportHeight) * 100;
-        var max = window.innerHeight > window.innerWidth ? 50 : 75;
+      const handleScroll = (): void => {
+        var scrollPosition: number = window.scrollY;
+        var viewportHeight: number = window.innerHeight;
+        var scaledPosition: number = (scrollPosition / viewportHeight) * 100;
+        var max: number = window.innerHeight > window.innerWidth ? 50 : 75;
         ang = mapRange(scaledPosition, max, 10, 0, Math.PI/3);
         console.log(window.innerHeight)
         dotOpacity = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
@@ -171,12 +171,14 @@ const Canvas: React.FC<CanvasProps> = () => {
         draw();
       }
 
+
       window.addEventListener('scroll',  handleScroll)
       window.addEventListener('resize', handleResize);
 
+      handleResize();
 
-      draw();
       return () => {
+        window.addEventListener('scroll',  handleScroll)
         window.removeEventListener('resize', handleResize);
       };
     
