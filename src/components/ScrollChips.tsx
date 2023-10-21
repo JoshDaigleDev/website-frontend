@@ -43,13 +43,15 @@ export default function ScrollChips() {
                         <svg className="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
                 </button> 
             }
-            {
-                !isVisible && !isMobile && <button 
-                    onClick={() => { window.scrollTo({ top: 900, behavior: "smooth" }); }}
-                    className="bg-neutral-800 border-yellow-600 text-yellow-600 animate-bounce absolute border-4 rounded-full bottom-10 right-0 left-0 p-3 hover:p-4 m-auto">
-                        <svg className="h-8 w-8 fill-current" viewBox="0 -960 960 960"><path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/></svg>
-                </button> 
-            }
+            <div className="flex justify-center">           
+              {
+                  !isVisible && !isMobile && <button 
+                      onClick={() => { window.scrollTo({ top: 900, behavior: "smooth" }); }}
+                      className="bg-neutral-800 border-yellow-600 text-yellow-600 animate-bounce absolute border-4 rounded-full bottom-10 p-3 hover:p-4 m-auto">
+                          <svg className="h-8 w-8 fill-current" viewBox="0 -960 960 960"><path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/></svg>
+                  </button> 
+              }
+            </div>
       </div>
     );
 

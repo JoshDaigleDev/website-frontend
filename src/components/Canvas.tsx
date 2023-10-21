@@ -127,7 +127,7 @@ const Canvas: React.FC<CanvasProps> = () => {
         if (!canvas || !context || ang < Math.PI/1024) return;
         context.fillStyle = "#ca8a04";
         var width: number = mapRange(ang, Math.PI/1024, Math.PI/6, 0, 2*canvas.width/3)
-        var height: number = reduce ? canvas.height/180 : canvas.height/80 //TODO-- WHY ISNT THIS WORKING?
+        var height: number = reduce ? canvas.height/180 : canvas.height/80
         context.fillRect(-canvas.width/3, -height+1, width, height);
 
       }
