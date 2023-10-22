@@ -5,7 +5,7 @@ import ScrollChips from '@/components/ScrollChips'
 
 export default function Page() {
   return (
-    <main className="min-h-max">
+    <main className="min-h-max mx-2">
       <ScrollChips />
       <div className="lg:min-h-screen min-h-[50vh]">
         <Title />

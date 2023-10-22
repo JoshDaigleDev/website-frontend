@@ -28,10 +28,14 @@ interface ExperienceExampleProps {
 
 export default function ExperienceExample(props: ExperienceExampleProps) {
   return (
-    <div className="grid bg-neutral-900 min-w-full mb-6">
-      <div className={`${boldFont.className} flex justify-between space-x-5  bg-neutral-800  p-2 text-lg lg:text-xl`}>
-        <span>{props.title} @ {props.company}</span>
-        <span className={`${italFont.className} text-sm lg:text-base items-center`}>{props.dateFrom} - {props.dateTo}</span>
+    <div className="grid bg-neutral-900 min-w-full mb-6 rounded-sm">
+      <div className={`${boldFont.className} grid grid-cols-3  bg-neutral-800  p-2 text-lg lg:text-xl rounded-sm`}>
+        <div className="col-span-2 flex justify-start">
+          <span>{props.title} @ {props.company}</span>
+        </div>
+        <div className="flex justify-end">
+          <span className={`${italFont.className} text-xs lg:text-base items-center`}>{props.dateFrom} - {props.dateTo}</span>
+        </div>
       </div>
       <div className="grid grid-cols-5">
         <div className="flex items-center p-2 justify-center ">
@@ -58,7 +62,7 @@ export default function ExperienceExample(props: ExperienceExampleProps) {
       </div>
       <div className="inline-block p-2 truncate overflow-hidden">
             {props.skills.map((skill, index) => (
-              <span key={index} className="p-1 m-1 text-xs lg:text-base bg-yellow-600">
+              <span key={index} className="p-1 m-1 text-xs lg:text-base bg-yellow-600 rounded-sm">
                 {skill}
               </span>
             ))}

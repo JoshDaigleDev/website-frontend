@@ -16,7 +16,20 @@ const Canvas: React.FC<CanvasProps> = () => {
       var dotOpacity: number = mapRange(ang, Math.PI/3.5, Math.PI/3, 0, 0.8);
 
       function calculateScale(): number {
-        return Math.max(window.innerWidth/8, 200);
+        var scale: number
+
+        var size: number = window.innerWidth
+        //small - < 
+        if (size < 500){
+          scale = window.innerHeight/4
+        } else if (size < 1024) {
+          scale = window.innerHeight/4
+        } else if(size < 1300) { 
+          scale = window.innerHeight/4.5
+        } else {
+          scale = window.innerHeight/4
+        } 
+        return scale
       }
 
       function mapRange(target: number, inMin: number, inMax: number, outMin: number, outMax: number): number {
@@ -89,7 +102,7 @@ const Canvas: React.FC<CanvasProps> = () => {
         if (num > 1){
           context.translate(0, -len);
           context.rotate(ang)
-          soloRecTree(canvas, num-1, len*0.6);
+          soloRecTree(canvas, num-1, len*0.7);
           context.rotate(-ang);
           context.rotate(-ang/2)
           soloRecTree(canvas, num-1, len*0.7);

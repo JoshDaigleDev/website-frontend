@@ -2,8 +2,8 @@
     {
         "company": "Payworks",
         "title": "Software Developer",
-        "dateFrom": "May 2022",
-        "dateTo": "August 2022",
+        "dateFrom": "05/2022",
+        "dateTo": "08/2022",
         "jobDescription":"Developed several pages and API routes to expand the features of the Payworks Software Suite.",
         "imagePath": "/PayworksLogo.png",
         "imageAlt": "Payworks Logo",
@@ -15,8 +15,8 @@
     {
         "company": "Agriculture and Agri-Food Canada",
         "title": "Programmer/Analyst",
-        "dateFrom": "September 2021",
-        "dateTo": "December 2021",
+        "dateFrom": "09/2021",
+        "dateTo": "12/2021",
         "jobDescription":"Created intuitive user interfaces and enable comprehensive activity cost sharing, financial planning, and resource allocation.",
         "imagePath": "/AgricultureAndAgriFoodCanadaLogo.png",
         "imageAlt": "Agriculture and Agri-Food Canada Logo",
@@ -28,8 +28,8 @@
     {
         "company": "Upfeat Media",
         "title": "Software Developer",
-        "dateFrom": "January 2021",
-        "dateTo": "April 2021",
+        "dateFrom": "01/2021",
+        "dateTo": "04/2021",
         "jobDescription":"Build a web-based Covid-19 contact tracing application.",
         "imagePath": "/UpfeatLogo.png",
         "imageAlt": "Upfeat Media Logo Logo",

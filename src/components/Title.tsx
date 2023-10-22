@@ -15,14 +15,14 @@ export default function Title() {
     return (
         <>
         <Canvas />
-        <section className="grid gap-3 md:gap-8 pt-9 lg:mt-9 -z-20">
-            <div className="flex justify-center items-end  drop-shadow-lg z-10 mt-5">
-                <h1 className={`${boldFont.className} underline decoration-yellow-600 lg:text-[180px] md:text-[140px] sm:text-8xl text-6xl`}>
+        <section className="grid pt-9">
+            <div className="flex justify-center">
+                <h1 className={`${boldFont.className} underline decoration-yellow-600 text-[56px] sm:text-[64px] md:text-[88px] xl:text-[128px]`}>
                     Josh Daigle
                 </h1>
             </div>
-            <div className="flex justify-center drop-shadow-lg">
-                <h1 className={`${italFont.className} lg:text-[66px] md:text-[54px] sm:text-4xl text-2xl z-10`}>
+            <div className="flex justify-center">
+                <h1 className={`${italFont.className} text-[20px] sm:text-[24px] md:text-[32px] xl:text-[40px]`}>
                     Software Developer
                 </h1>
             </div>
